@@ -1,0 +1,27 @@
+{application, mcp_server, [
+    {description, "Model Context Protocol (MCP) Server for LLM Orchestration"},
+    {vsn, "0.1.0"},
+    {registered, [mcp_orchestrator, mcp_model_sup]},
+    {mod, {mcp_app, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        inets,
+        ssl,
+        cowboy,
+        jsx
+    ]},
+    {env, [
+        {port, 8080}
+    ]},
+    {modules, [
+        mcp_server,
+        mcp_app,
+        mcp_sup,
+        mcp_model_sup,
+        mcp_orchestrator,
+        mcp_model,
+        mcp_api_handler,
+        mcp_models_handler
+    ]}
+]}.
